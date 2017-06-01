@@ -26,7 +26,7 @@
   <mapping class="model.UserDetails"/>
   <mapping class="model.Vehicle"/>
   <mapping class="model.ClaimDetails"/>
-  
-  
+  <mapping class="model.TwoWheelerVehicle"/>
+  <mapping class="model.FourWheelerVehicle"/>  
 </session-factory>
 </hibernate-configuration>

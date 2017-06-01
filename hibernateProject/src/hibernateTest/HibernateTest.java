@@ -3,13 +3,15 @@ package hibernateTest;
 
 import java.util.Date;
 
+import model.Address;
+import model.FourWheelerVehicle;
+import model.TwoWheelerVehicle;
+import model.UserDetails;
+import model.Vehicle;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
-import model.Address;
-import model.UserDetails;
-import model.Vehicle;
 
 public class HibernateTest {
 	public static void main(String[] args) {
@@ -26,12 +28,27 @@ public class HibernateTest {
 		ud.getListOfAddresses().add(add2);
  		ud.setDescription("Description of First Person goes here");
  		Vehicle vehicle = new Vehicle();
+ 		vehicle.setVehicleId(1);
  		vehicle.setVehicleName("Car");
+ 		
+ 		TwoWheelerVehicle twv = new TwoWheelerVehicle();
+ 		twv.setVehicleName("Porsche");
+ 		twv.setSteeringWheel("Car Steering");
+ 		
+ 		FourWheelerVehicle fwv = new FourWheelerVehicle();
+ 		fwv.setVehicleId(2);
+ 		fwv.setVehicleName("Bike");
+ 		fwv.setSteeringHandle("Bike Handle");
+ 		
  		ud.getVehicle().add(vehicle);
+ 		ud.getVehicle().add(twv);
+ 		ud.getVehicle().add(fwv);
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
 		session.save(ud);
+		session.save(twv);
+		session.save(fwv);
 		session.save(vehicle);
 		session.getTransaction().commit();
 		session.close();
