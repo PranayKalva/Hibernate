@@ -27,7 +27,7 @@ public class HibernateTest {
  		ud.setDescription("Description of First Person goes here");
  		Vehicle vehicle = new Vehicle();
  		vehicle.setVehicleName("Car");
- 		ud.setVehicle(vehicle);
+ 		ud.getVehicle().add(vehicle);
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session session = sf.openSession();
 		session.beginTransaction();
@@ -35,13 +35,13 @@ public class HibernateTest {
 		session.save(vehicle);
 		session.getTransaction().commit();
 		session.close();
-		
-		/*SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		/*
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		UserDetails ud = new UserDetails();
-		ud = null;
+		//ud = null;
 		Session session = sf.openSession();
 		session.beginTransaction();
-		ud= session.get(UserDetails.class,1);
-		System.out.println("USER NAME IS "+ ud.getUserName().toUpperCase()+ " HE LIVES IN "+ud.getListOfAddresses());
-	*/}
+		ud= (UserDetails) session.get(UserDetails.class,1);
+		System.out.println("USER NAME IS "+ ud.getUserName().toUpperCase()+ " HE LIVES IN "+ud.getListOfAddresses());*/
+	}
 }

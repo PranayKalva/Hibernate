@@ -11,20 +11,22 @@
 <hibernate-configuration>
 <session-factory>
   <property name="hibernate.connection.driver_class">
-        org.apache.derby.jdbc.ClientDriver
-  </property>
+  			com.ibm.db2.jcc.DB2Driver
+   </property>
   <property name="hibernate.connection.url">
-        jdbc:derby://localhost:1527/db;create=true
+        jdbc:db2://192.168.221.229:60101/fondstg1:currentSchema=FONDPRD1;useJDBC4ColumnNameAndLabelSemantics=2;retrieveMessagesFromServerOnGetMessage=true;
   </property>
-  <property name="hibernate.connection.username">admin</property>
-  <property name="hibernate.connection.password">admin</property>
+  <property name="hibernate.connection.username">tpmsdmo</property>
+  <property name="hibernate.connection.password">sear-mEww6</property>
   <property name="hibernate.connection.pool_size">10</property>
   <property name="show_sql">true</property>
-  <property name="dialect">org.hibernate.dialect.DerbyDialect</property>
+  <property name="dialect">org.hibernate.dialect.DB2Dialect</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
   <!-- Mapping files -->
   <mapping class="model.UserDetails"/>
   <mapping class="model.Vehicle"/>
+  <mapping class="model.ClaimDetails"/>
+  
   
 </session-factory>
 </hibernate-configuration>
