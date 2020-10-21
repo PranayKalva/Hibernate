@@ -14,7 +14,7 @@
   			com.ibm.db2.jcc.DB2Driver
    </property>
   <property name="hibernate.connection.url">
-        jdbc:db2://192.168.221.229:60101/fondstg1:currentSchema=FONDPRD1;useJDBC4ColumnNameAndLabelSemantics=2;retrieveMessagesFromServerOnGetMessage=true;
+       
   </property>
   <property name="hibernate.connection.username">tpmsdmo</property>
   <property name="hibernate.connection.password">sear-mEww6</property>
